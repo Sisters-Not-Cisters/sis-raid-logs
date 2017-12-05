@@ -1,7 +1,5 @@
 <?php
-	
-	date_default_timezone_set('America/Toronto');
-	
+date_default_timezone_set('America/Toronto');
 ?>
 <!DOCTYPE html>
 <html lang="en">
