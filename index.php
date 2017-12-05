@@ -65,11 +65,11 @@
 						<?php
 						$logs = glob("logs/*/*");
 						foreach ($logs as $log) {
-							list($folder, $subfolder, $date, $boss, $ext) = split('[/.-]', $log);
+							list($folder, $subfolder, $date, $time, $boss, $ext) = split('[/.-]', $log);
 							
-							$date = date_create_from_format('Ymd', $date);
+							$fulldate = date_create_from_format('Ymd His', $date.$time);
 							
-							echo '<tr><th scope="row">'.$date->format('l, F j, Y').'</th><td><a href="'.$log.'">'.$boss.'</a></th></tr>';
+							echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$boss.'</a></th></tr>';
 						}
 							
 						?>
