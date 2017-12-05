@@ -17,8 +17,9 @@ date_default_timezone_set('America/Toronto');
 		body {
 			background-image: url("img/bg/dragon.jpg");
 			background-repeat: no-repeat;
-			background-size: 100% auto;
+			background-size: cover;
 			background-attachment: fixed;
+			background-position: top center;
 		}
 		.content-bg {
 			background-color: rgba(230, 230, 230, 0.9);
