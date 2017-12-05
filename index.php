@@ -1,6 +1,6 @@
 <?php
-	date_default_timezone_set('America/Toronto');
-	$directory = $_SESSION['base_url'] . "logs/*/*.html";
+date_default_timezone_set('America/Toronto');
+$directory = $_SESSION['base_url'] . "logs/*/*.html";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,14 +63,14 @@
 								</thead>
 								<tbody>
 									<?php
-										$logs = glob($directory);
-										echo "<!--".$logs."-->\n";
-										foreach ($logs as $log) {
-											echo "<!--".$log."-->\n";
-											list($folder, $subfolder, $date, $time, $boss, $ext) = split('[/.-]', $log);
-											$fulldate = date_create_from_format('Ymd His', $date.$time);
-											echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$boss.'</a></th></tr>';
-										}
+									$logs = glob($directory);
+									echo "<!--".$logs."-->\n";
+									foreach ($logs as $log) {
+										echo "<!--".$log."-->\n";
+										list($folder, $subfolder, $date, $time, $boss, $ext) = split('[/.-]', $log);
+										$fulldate = date_create_from_format('Ymd His', $date.$time);
+										echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$boss.'</a></th></tr>';
+									}
 									?>
 								</tbody>
 							</table>
@@ -79,9 +79,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-</html>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	</html>
