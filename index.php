@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('America/Toronto');
+	date_default_timezone_set('America/Toronto');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,36 +50,35 @@ date_default_timezone_set('America/Toronto');
 							</ul>
 						</div>
 					</nav>
-				<div class="content-bg">
-					<div class="content-internal" data-spy="scroll" data-target="#navbar" data-offset="0">
-						<h4 id="logs">Logs</h4>
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th scope="col">Date</th>
-									<th scope="col">Boss</th>
-								</tr>
-							</thead>
-							<tbody>
-						<?php
-						$logs = glob("logs/*/*");
-						foreach ($logs as $log) {
-							list($folder, $subfolder, $date, $time, $boss, $ext) = split('[/.-]', $log);
-							
-							$fulldate = date_create_from_format('Ymd His', $date.$time);
-							
-							echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$boss.'</a></th></tr>';
-						}
-							
-						?>
-							</tbody>
-						</table>
+					<div class="content-bg">
+						<div class="content-internal" data-spy="scroll" data-target="#navbar" data-offset="0">
+							<h4 id="logs">Logs</h4>
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">Date</th>
+										<th scope="col">Boss</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										$logs = glob("logs/*/*");
+										echo "<!--".$logs."-->\n";
+										foreach ($logs as $log) {
+											echo "<!--".$log."-->\n";
+											list($folder, $subfolder, $date, $time, $boss, $ext) = split('[/.-]', $log);
+											$fulldate = date_create_from_format('Ymd His', $date.$time);
+											echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$boss.'</a></th></tr>';
+										}
+									?>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
