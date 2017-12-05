@@ -67,9 +67,9 @@ $directory = $_SESSION['base_url'] . "logs/*/*.html";
 									echo "<!--".$logs."-->\n";
 									foreach ($logs as $log) {
 										echo "<!--".$log."-->\n";
-										list($folder, $subfolder, $date, $time, $boss, $ext) = split('[/.-]', $log);
-										$fulldate = date_create_from_format('Ymd His', $date.$time);
-										echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$boss.'</a></th></tr>';
+										$keywords = preg_split("/[-.\/]+/", $log);
+										$fulldate = date_create_from_format('Ymd His', $keywords[2].$keywords[3]);
+										echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$keywords[4].'</a></th></tr>';
 									}
 									?>
 								</tbody>
