@@ -1,5 +1,6 @@
 <?php
 	date_default_timezone_set('America/Toronto');
+	$directory = $_SESSION['base_url'] . "logs/*/*.html";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +63,7 @@
 								</thead>
 								<tbody>
 									<?php
-										$logs = glob("logs/*/*");
+										$logs = glob($directory);
 										echo "<!--".$logs."-->\n";
 										foreach ($logs as $log) {
 											echo "<!--".$log."-->\n";
