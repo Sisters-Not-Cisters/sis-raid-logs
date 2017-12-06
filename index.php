@@ -86,7 +86,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 			<meta name="robots" content="" />
 			<meta name="author" content="Elizabeth Wetton" />
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			<!-- <link rel="shortcut icon" href="http://wow.girlcock.club/img/favicon.gif" type="image/gif" /> -->
+			<link rel="shortcut icon" href="img/sis.png" type="image/png" />
 			<title>[SIS] Raid Logs</title>
 			<style>
 				body {
