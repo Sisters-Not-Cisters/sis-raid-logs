@@ -133,7 +133,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 									<div class="tab-pane fade  show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-profile-raiders">
 										<h4 id="raiders">Raiders</h4>
 										<table class="table" id="SortTable">
-											<thead class="thead-default"><tr><th style="width:100%" onclick="sortTable(0)">Player:</th><th onclick="sortTable(1)">Professions:</th><thead>
+											<thead class="thead-default"><tr><th style="width:70%" onclick="sortTable(0)">Player:</th><th style="width:30%" onclick="sortTable(1)">Professions:</th><thead>
 												<?php
 												mysqli_select_db($mysql_connect, $mysql["db"]) or die("Unable to select logon database.");
 
@@ -184,10 +184,12 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 															}
 																
 															// Commented HTML for JS to sort column.
-															$hack = 'style="width:100%"';
-															echo sprintf("<tr><td %s>%s</td><td>%s</td></tr>\n",
-															$hack,
+															$left = 'style="width:70%"';
+															$right = 'style="width:30%"';
+															echo sprintf("<tr><td %s>%s</td><td %s>%s</td></tr>\n",
+															$left,
 															$row['discord_name'],
+															$right,
 															$profs);
 
 						
