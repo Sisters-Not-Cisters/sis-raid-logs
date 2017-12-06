@@ -181,7 +181,7 @@ $range2->setTimestamp($now-$offset-2592000);
 								</thead>
 								<tbody>
 									<?php
-									foreach ($logs as $log) {
+									foreach (array_reverse($logs) as $log) {
 										$keywords = preg_split("/[-.\/]+/", $log);
 										$log = str_replace(' ', '%20', $log);
 										$fulldate = date_create_from_format('Ymd His', $keywords[2].$keywords[3]);
