@@ -87,7 +87,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 			<meta name="author" content="Elizabeth Wetton" />
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 			<link rel="shortcut icon" href="img/sis.png" type="image/png" />
-			<title>[SIS] Raid Logs</title>
+			<title>[SIS] Sisters not Cisters</title>
 			<style>
 				body {
 					background-image: url("img/bg/dragon.jpg");
@@ -112,7 +112,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 							<!-- Carousel may be classy here -->
 							<!-- Similar to qT, let's have our navbar and content all in the section. -->
 							<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-								<span class="navbar-brand mb-0 h1">Sisters Not Cisters</span>
+								<img src="img/sis.png" style="width:50px;height:50px" alt="[SIS]"><span class="navbar-brand mb-0 h1">Sisters Not Cisters</span>
 								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 									<span class="navbar-toggler-icon"></span>
 								</button>
@@ -120,10 +120,13 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 								<div class="collapse navbar-collapse" id="navbarSupportedContent">
 									<ul class="nav nav-pills ml-auto" id="pills-tab" role="tablist">
 										<li class="nav-item active">
-											<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="false">Raiders</a>
+											<a class="nav-link" id="pills-profile-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="false">Raiders</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="true">Logs</a>
+											<a class="nav-link" id="pills-profile-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="true">Logs</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" id="pills-profile-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="true">Resources</a>
 										</li>
 									</ul>
 								</div>
@@ -222,7 +225,27 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 												</tbody>
 											</table>
 										</div>
-
+										<div class="tab-pane fade" id="pills-resources" role="tabpanel" aria-labelledby="pills-logs-resources">
+											<h4 id="logs">Resources:</h4>
+											<p class="lead">Useful Links for Guild Wars 2 raiders.</p>
+											<p><strong>Character Building:</strong></p>
+											<ul class="list-unstyled">
+												<li><a href="http://metabattle.com/">Metabattle</a></li>
+												<li><a href="http://qtfy.eu/">quanTify</a></li>
+												<li><a href="https://snowcrows.com/">Snowcrows</a></li>
+											</ul>
+											<p><strong>Making Money:</strong></p>
+											<ul class="list-unstyled">
+												<li><a href="https://gw2efficiency.com/account/overview">Guild Wars 2 Efficiency</a></li>
+												<li><a href="https://jfnaud.github.io/Guild-Wars-2-Gold-per-hour/">Gold Per Hour</a></li>
+												<li><a href="https://www.gw2spidy.com/">Gw2 Spidy</a></li>
+											</ul>
+											<p><strong>Addons:</strong></p>
+											<ul class="list-unstyled">
+												<li><a href="https://www.deltaconnected.com/arcdps/">ArcDPS</a></li>
+												<li><a href="https://04348.github.io/Gw2Hook/">Gw2 Hook</a></li>
+											</ul>
+										</div>
 									</div>
 								</div>
 							</div>
