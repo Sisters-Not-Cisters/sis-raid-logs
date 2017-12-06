@@ -8,6 +8,14 @@ require("config.php");
 
 $now = time();
 
+if($_GET['o'] > 0) {
+	$offset = $_GET['o'] * 2592000;
+}
+else {
+	$offset = 0;
+}
+
+
 $mysql_connect = mysqli_connect($mysql["host"], $mysql["username"], $mysql["password"]) or die("Unable to connect to the database.");
 
 function secondsToTime($inputSeconds) {
@@ -20,6 +28,11 @@ function secondsToTime($inputSeconds) {
 $commanders = array('FluffyPira' => '<img style="height:20px; width:20px;" src="img/commander/Catmander_tag_(yellow).png" alt="[C]">');
 
 $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro", "4" => "text-thief", "5" => "text-ranger", "6" => "text-engi", "7" => "text-guard", "8" => "text-rev", "9" => "text-war", "10" => "text-ele", "11" => "text-mes", "12" => "text-necro", "13" => "text-thief", "14" => "text-ranger", "15" => "text-engi", "16" => "text-guard", "17" => "text-rev", "18" => "text-war", "19" => "text-ele", "20" => "text-mes", "21" => "text-necro", "22" => "text-thief", "23" => "text-ranger", "24" => "text-engi", "25" => "text-guard", "26" => "text-rev", "27" => "text-war");
+
+$range1 = new DateTime();
+$range1->setTimestamp($now-$offset);
+$range2 = new DateTime();
+$range2->setTimestamp($now-$offset-2592000);
 
 ?>
 <!DOCTYPE html>
@@ -67,20 +80,20 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="nav nav-pills ml-auto" id="pills-tab" role="tablist">
 							<li class="nav-item active">
-								<a class="nav-link" id="pills-nav-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="false">Raiders</a>
+								<a class="nav-link" id="pills-nav-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="true">Raiders</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="pills-nav-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="true">Logs</a>
+								<a class="nav-link" id="pills-nav-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="false">Logs</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="pills-nav-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="true">Resources</a>
+								<a class="nav-link" id="pills-nav-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="false">Resources</a>
 							</li>
 						</ul>
 					</div>
 				</nav>
 				<div class="content-bg">
 					<div class="tab-content content-internal" id="pills-tabContent" data-spy="scroll" data-target="#navbar" data-offset="0">
-						<div class="tab-pane fade  show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-nav-raiders">
+						<div class="tab-pane fade show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-nav-raiders">
 							<h4 id="raiders">Raiders</h4>
 							<table class="table">
 								<thead class="thead-default"><tr><th style="width:70%">Player:</th><th style="width:30%">Professions:</th>
@@ -158,6 +171,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 						</div>
 						<div class="tab-pane fade" id="pills-logs" role="tabpanel" aria-labelledby="pills-nav-logs">
 							<h4 id="logs">Logs</h4>
+							<?php echo '<!-- Searching between: '.$range1->format('l, F j, Y - H:i:s').' and '.$range2->format('l, F j, Y - H:i:s').'-->'; ?>
 							<table class="table table-hover" id="SortTable">
 								<thead>
 									<tr>
@@ -171,7 +185,10 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 										$keywords = preg_split("/[-.\/]+/", $log);
 										$log = str_replace(' ', '%20', $log);
 										$fulldate = date_create_from_format('Ymd His', $keywords[2].$keywords[3]);
-										echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$keywords[4].'</a></td></tr>';
+
+										if ((($now-$offset)-$fulldate->format('U')) < 2592000 ) {
+											echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$keywords[4].'</a></td></tr>';
+										}
 									}
 									?>
 								</tbody>
