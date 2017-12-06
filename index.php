@@ -17,7 +17,7 @@ function secondsToTime($inputSeconds) {
 	return $diff->y . 'y ' . $diff->m . 'm ' . $diff->d . 'd';
 }
 
-$commanders = array('FluffyPira' => '<img style="height:20px; width:20px;" src="img/commander/Catmander_tag_(yellow).png">');
+$commanders = array('FluffyPira' => '<img style="height:20px; width:20px;" src="img/commander/Catmander_tag_(yellow).png" alt="[C]">');
 
 $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro", "4" => "text-thief", "5" => "text-ranger", "6" => "text-engi", "7" => "text-guard", "8" => "text-rev", "9" => "text-war", "10" => "text-ele", "11" => "text-mes", "12" => "text-necro", "13" => "text-thief", "14" => "text-ranger", "15" => "text-engi", "16" => "text-guard", "17" => "text-rev", "18" => "text-war", "19" => "text-ele", "20" => "text-mes", "21" => "text-necro", "22" => "text-thief", "23" => "text-ranger", "24" => "text-engi", "25" => "text-guard", "26" => "text-rev", "27" => "text-war");
 
@@ -67,23 +67,23 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 								<div class="collapse navbar-collapse" id="navbarSupportedContent">
 									<ul class="nav nav-pills ml-auto" id="pills-tab" role="tablist">
 										<li class="nav-item active">
-											<a class="nav-link" id="pills-profile-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="false">Raiders</a>
+											<a class="nav-link" id="pills-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="false">Raiders</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" id="pills-profile-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="true">Logs</a>
+											<a class="nav-link" id="pills-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="true">Logs</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" id="pills-profile-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="true">Resources</a>
+											<a class="nav-link" id="pills-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="true">Resources</a>
 										</li>
 									</ul>
 								</div>
 							</nav>
 							<div class="content-bg">
 								<div class="tab-content content-internal" id="pills-tabContent" data-spy="scroll" data-target="#navbar" data-offset="0">
-									<div class="tab-pane fade  show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-profile-raiders">
+									<div class="tab-pane fade  show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-raiders">
 										<h4 id="raiders">Raiders</h4>
 										<table class="table">
-											<thead class="thead-default"><tr><th style="width:70%">Player:</th><th style="width:30%">Professions:</th><thead>
+											<thead class="thead-default"><tr><th style="width:70%">Player:</th><th style="width:30%">Professions:</th></thead>
 												<?php
 												mysqli_select_db($mysql_connect, $mysql["db"]) or die("Unable to select logon database.");
 
@@ -155,7 +155,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 												?>
 											</table>
 										</div>
-										<div class="tab-pane fade" id="pills-logs" role="tabpanel" aria-labelledby="pills-logs-tab">
+										<div class="tab-pane fade" id="pills-logs" role="tabpanel" aria-labelledby="pills-logs">
 											<h4 id="logs">Logs</h4>
 											<table class="table table-hover" id="SortTable">
 												<thead>
@@ -166,19 +166,18 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 												</thead>
 												<tbody>
 													<?php
-													echo "<!--".$logs."-->\n";
 													foreach ($logs as $log) {
-														echo "<!--".$log."-->\n";
 														$keywords = preg_split("/[-.\/]+/", $log);
+														$log = str_replace(' ', '%20', $log);
 														$fulldate = date_create_from_format('Ymd His', $keywords[2].$keywords[3]);
-														echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$keywords[4].'</a></th></tr>';
+														echo '<tr><th scope="row">'.$fulldate->format('l, F j, Y - H:i:s').'</th><td><a href="'.$log.'">'.$keywords[4].'</a></td></tr>';
 													}
 													?>
 												</tbody>
 											</table>
 										</div>
-										<div class="tab-pane fade" id="pills-resources" role="tabpanel" aria-labelledby="pills-logs-resources">
-											<h4 id="logs">Resources:</h4>
+										<div class="tab-pane fade" id="pills-resources" role="tabpanel" aria-labelledby="pills-resources">
+											<h4 id="resources">Resources:</h4>
 											<p class="lead">Useful Links for Guild Wars 2 raiders.</p>
 											<p><strong>Character Building:</strong></p>
 											<ul class="list-unstyled">
