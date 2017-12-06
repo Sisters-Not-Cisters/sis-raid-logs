@@ -67,20 +67,20 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 								<div class="collapse navbar-collapse" id="navbarSupportedContent">
 									<ul class="nav nav-pills ml-auto" id="pills-tab" role="tablist">
 										<li class="nav-item active">
-											<a class="nav-link" id="pills-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="false">Raiders</a>
+											<a class="nav-link" id="pills-nav-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="false">Raiders</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" id="pills-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="true">Logs</a>
+											<a class="nav-link" id="pills-nav-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="true">Logs</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" id="pills-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="true">Resources</a>
+											<a class="nav-link" id="pills-nav-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="true">Resources</a>
 										</li>
 									</ul>
 								</div>
 							</nav>
 							<div class="content-bg">
 								<div class="tab-content content-internal" id="pills-tabContent" data-spy="scroll" data-target="#navbar" data-offset="0">
-									<div class="tab-pane fade  show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-raiders">
+									<div class="tab-pane fade  show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-nav-raiders">
 										<h4 id="raiders">Raiders</h4>
 										<table class="table">
 											<thead class="thead-default"><tr><th style="width:70%">Player:</th><th style="width:30%">Professions:</th></thead>
@@ -155,7 +155,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 												?>
 											</table>
 										</div>
-										<div class="tab-pane fade" id="pills-logs" role="tabpanel" aria-labelledby="pills-logs">
+										<div class="tab-pane fade" id="pills-logs" role="tabpanel" aria-labelledby="pills-nav-logs">
 											<h4 id="logs">Logs</h4>
 											<table class="table table-hover" id="SortTable">
 												<thead>
@@ -176,7 +176,7 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 												</tbody>
 											</table>
 										</div>
-										<div class="tab-pane fade" id="pills-resources" role="tabpanel" aria-labelledby="pills-resources">
+										<div class="tab-pane fade" id="pills-resources" role="tabpanel" aria-labelledby="pills-nav-resources">
 											<h4 id="resources">Resources:</h4>
 											<p class="lead">Useful Links for Guild Wars 2 raiders.</p>
 											<p><strong>Character Building:</strong></p>
