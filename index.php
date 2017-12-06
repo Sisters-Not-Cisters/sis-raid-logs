@@ -17,7 +17,7 @@ function secondsToTime($inputSeconds) {
 	return $diff->y . 'y ' . $diff->m . 'm ' . $diff->d . 'd';
 }
 
-$commanders = array('FluffyPira' => '<img src="img/commander/Catmander_tag_(yellow).png"');
+$commanders = array('FluffyPira' => '<img style="height:20px; width:20px;" src="img/commander/Catmander_tag_(yellow).png">');
 
 $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro", "4" => "text-thief", "5" => "text-ranger", "6" => "text-engi", "7" => "text-guard", "8" => "text-rev", "9" => "text-war", "10" => "text-ele", "11" => "text-mes", "12" => "text-necro", "13" => "text-thief", "14" => "text-ranger", "15" => "text-engi", "16" => "text-guard", "17" => "text-rev", "18" => "text-war", "19" => "text-ele", "20" => "text-mes", "21" => "text-necro", "22" => "text-thief", "23" => "text-ranger", "24" => "text-engi", "25" => "text-guard", "26" => "text-rev", "27" => "text-war");
 
@@ -137,8 +137,8 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 								<div class="tab-content content-internal" id="pills-tabContent" data-spy="scroll" data-target="#navbar" data-offset="0">
 									<div class="tab-pane fade  show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-profile-raiders">
 										<h4 id="raiders">Raiders</h4>
-										<table class="table" id="SortTable">
-											<thead class="thead-default"><tr><th style="width:70%" onclick="sortTable(0)">Player:</th><th style="width:30%" onclick="sortTable(1)">Professions:</th><thead>
+										<table class="table">
+											<thead class="thead-default"><tr><th style="width:70%">Player:</th><th style="width:30%">Professions:</th><thead>
 												<?php
 												mysqli_select_db($mysql_connect, $mysql["db"]) or die("Unable to select logon database.");
 
@@ -187,21 +187,19 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 																	}
 																}
 															}
-															# This could all definately be refactored later, but let's leave it as this hacky mess for the time being.
+															
+															# "This is fine," she says, as her code burns down around her.
 															
 															$tag = '';
 															$name = $row['discord_name'];
-															if(in_array($name, $commanders)) {
-																$tag = $commanders[$name];
-															}
-															$left = 'style="width:70%"';
-															$right = 'style="width:30%"';
 															
-															echo sprintf("<tr><td %s>%s%s</td><td %s>%s</td></tr>\n",
-															$left,
+															if($commanders[$name]) {
+																$tag = $commanders[$name]." ";
+															}
+															
+															echo sprintf("<tr><td style=\"width:70%%\">%s%s</td><td tyle=\"width:30%%\">%s</td></tr>\n",
 															$tag,
 															$name,
-															$right,
 															$profs);
 
 						
