@@ -17,6 +17,8 @@ function secondsToTime($inputSeconds) {
 	return $diff->y . 'y ' . $diff->m . 'm ' . $diff->d . 'd';
 }
 
+$commanders = array('FluffyPira' => '<img src="img/commander/Catmander_tag_(yellow).png"');
+
 $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro", "4" => "text-thief", "5" => "text-ranger", "6" => "text-engi", "7" => "text-guard", "8" => "text-rev", "9" => "text-war", "10" => "text-ele", "11" => "text-mes", "12" => "text-necro", "13" => "text-thief", "14" => "text-ranger", "15" => "text-engi", "16" => "text-guard", "17" => "text-rev", "18" => "text-war", "19" => "text-ele", "20" => "text-mes", "21" => "text-necro", "22" => "text-thief", "23" => "text-ranger", "24" => "text-engi", "25" => "text-guard", "26" => "text-rev", "27" => "text-war");
 
 ?>
@@ -185,13 +187,20 @@ $classtextcolor = array("1" => "text-ele", "2" => "text-mes", "3" => "text-necro
 																	}
 																}
 															}
-																
-															// Commented HTML for JS to sort column.
+															# This could all definately be refactored later, but let's leave it as this hacky mess for the time being.
+															
+															$tag = '';
+															$name = $row['discord_name'];
+															if(in_array($name, $commanders)) {
+																$tag = $commanders[$name];
+															}
 															$left = 'style="width:70%"';
 															$right = 'style="width:30%"';
-															echo sprintf("<tr><td %s>%s</td><td %s>%s</td></tr>\n",
+															
+															echo sprintf("<tr><td %s>%s%s</td><td %s>%s</td></tr>\n",
 															$left,
-															$row['discord_name'],
+															$tag,
+															$name,
 															$right,
 															$profs);
 
