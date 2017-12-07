@@ -39,7 +39,7 @@ $range2->setTimestamp($now-$offset-2592000);
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="http://sis.fluffypira.sexy/boostrap/css/bootstrap.css?v=10" type="text/css">
+	<link rel="stylesheet" href="bootstrap.css?v=1" type="text/css">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta name="robots" content="" />
