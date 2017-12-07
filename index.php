@@ -39,7 +39,7 @@ $range2->setTimestamp($now-$offset-2592000);
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="http://sis.fluffypira.sexy/boostrap/css/bootstrap.css?v=10" type="text/css">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta name="robots" content="" />
@@ -55,12 +55,6 @@ $range2->setTimestamp($now-$offset-2592000);
 			background-attachment: fixed;
 			background-position: top center;
 		}
-		.content-bg {
-			background-color: rgba(230, 230, 230, 0.9);
-		}
-		.content-internal {
-			padding: 5%;
-		}
 	</style>
 			
 </head>
@@ -71,7 +65,7 @@ $range2->setTimestamp($now-$offset-2592000);
 			<div class="col-md-8 offset-md-2">
 				<!-- Carousel may be classy here -->
 				<!-- Similar to qT, let's have our navbar and content all in the section. -->
-				<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+				<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
 					<img src="img/sis.png" style="width:50px;height:50px" alt="[SIS]"><span class="navbar-brand mb-0 h1">Sisters Not Cisters</span>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
