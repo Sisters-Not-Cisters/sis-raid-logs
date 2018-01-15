@@ -74,10 +74,10 @@ $range2->setTimestamp($now-$offset-2592000);
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="nav nav-pills ml-auto" id="pills-tab" role="tablist">
 							<li class="nav-item active">
-								<a class="nav-link" id="pills-nav-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="true">Raiders</a>
+								<a class="nav-link" id="pills-nav-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="false">Logs</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" id="pills-nav-logs" data-toggle="pill" href="#pills-logs" role="tab" aria-controls="pills-logs" aria-selected="false">Logs</a>
+								<a class="nav-link" id="pills-nav-raiders" data-toggle="pill" href="#pills-raiders" role="tab" aria-controls="pills-raiders" aria-selected="true">Raiders</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" id="pills-nav-resources" data-toggle="pill" href="#pills-resources" role="tab" aria-controls="pills-resources" aria-selected="false">Resources</a>
@@ -87,7 +87,32 @@ $range2->setTimestamp($now-$offset-2592000);
 				</nav>
 				<div class="content-bg">
 					<div class="tab-content content-internal" id="pills-tabContent" data-spy="scroll" data-target="#navbar" data-offset="0">
-						<div class="tab-pane fade show active" id="pills-raiders" role="tabpanel" aria-labelledby="pills-nav-raiders">
+						<div class="tab-pane fade show active" id="pills-logs" role="tabpanel" aria-labelledby="pills-nav-logs">
+							<h4 id="logs">Logs</h4>
+							<?php echo '<!-- Searching between: '.$range1->format('l, F j, Y - H:i:s').' and '.$range2->format('l, F j, Y - H:i:s').'-->'; ?>
+							<table class="table table-hover" id="SortTable">
+								<thead>
+									<tr>
+										<th scope="col" onclick="sortTable(0)">Date</th>
+										<th scope="col" onclick="sortTable(1)">Boss</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+									foreach (array_reverse($logs) as $log) {
+										$keywords = preg_split("/[-.\/]+/", $log);
+										$log = str_replace(' ', '%20', $log);
+										$fulldate = date_create_from_format('Ymd His', $keywords[2].$keywords[3]);
+
+										# if ((($now-$offset)-$fulldate->format('U')) < 2592000 ) { 
+											echo '<tr><td><!--'.$fulldate->format('U').'-->'.$fulldate->format('l, F j, Y - H:i:s').'</td><td><!-- '.$keywords[4].'--><a href="'.$log.'">'.$keywords[4].'</a></td></tr>';
+										# }
+									}
+									?>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="pills-raiders" role="tabpanel" aria-labelledby="pills-nav-raiders">
 							<h4 id="raiders">Raiders</h4>
 							<table class="table">
 								<thead class="thead-default"><tr><th style="width:70%">Player:</th><th style="width:30%">Professions:</th>
@@ -161,31 +186,6 @@ $range2->setTimestamp($now-$offset-2592000);
 									}
 								}
 								?>
-							</table>
-						</div>
-						<div class="tab-pane fade" id="pills-logs" role="tabpanel" aria-labelledby="pills-nav-logs">
-							<h4 id="logs">Logs</h4>
-							<?php echo '<!-- Searching between: '.$range1->format('l, F j, Y - H:i:s').' and '.$range2->format('l, F j, Y - H:i:s').'-->'; ?>
-							<table class="table table-hover" id="SortTable">
-								<thead>
-									<tr>
-										<th scope="col" onclick="sortTable(0)">Date</th>
-										<th scope="col" onclick="sortTable(1)">Boss</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									foreach (array_reverse($logs) as $log) {
-										$keywords = preg_split("/[-.\/]+/", $log);
-										$log = str_replace(' ', '%20', $log);
-										$fulldate = date_create_from_format('Ymd His', $keywords[2].$keywords[3]);
-
-										# if ((($now-$offset)-$fulldate->format('U')) < 2592000 ) { 
-											echo '<tr><td><!--'.$fulldate->format('U').'-->'.$fulldate->format('l, F j, Y - H:i:s').'</td><td><!-- '.$keywords[4].'--><a href="'.$log.'">'.$keywords[4].'</a></td></tr>';
-										# }
-									}
-									?>
-								</tbody>
 							</table>
 						</div>
 						<div class="tab-pane fade" id="pills-resources" role="tabpanel" aria-labelledby="pills-nav-resources">
