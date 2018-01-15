@@ -180,9 +180,9 @@ $range2->setTimestamp($now-$offset-2592000);
 										$log = str_replace(' ', '%20', $log);
 										$fulldate = date_create_from_format('Ymd His', $keywords[2].$keywords[3]);
 
-										if ((($now-$offset)-$fulldate->format('U')) < 2592000 ) {
+										# if ((($now-$offset)-$fulldate->format('U')) < 2592000 ) { 
 											echo '<tr><td><!--'.$fulldate->format('U').'-->'.$fulldate->format('l, F j, Y - H:i:s').'</td><td><!-- '.$keywords[4].'--><a href="'.$log.'">'.$keywords[4].'</a></td></tr>';
-										}
+										# }
 									}
 									?>
 								</tbody>
